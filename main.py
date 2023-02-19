@@ -1,6 +1,9 @@
+import random
+
+
 def print_word(orstr, upstr):
     stat = True
-    for i in range(0, len(upstr)):
+    for i in range(len(upstr)):
         if not upstr[i].isalpha():
             print(orstr[i], end='')
         if guessed_char[ord(upstr[i]) - ord('A')] == 0:
@@ -15,7 +18,8 @@ guessed_char = [0] * 26
 guessed_wrong = []
 is_success = False
 
-original_str = "funny"
+original_str = open("word.txt", encoding="utf-8").readlines()[random.randint(0, 7743)].split(" ")[0]
+print(original_str)
 # original_str = input("Please enter the word: ")
 up_str = original_str.upper()
 guess_time = len(original_str) + 1
@@ -33,7 +37,7 @@ while guess_time > 0 and not win:
         print(i, end=' ')
     print()
     print("----------------------------")
-    print("There are " + str(guess_time) + " chance left. ")
+    print(f"There are {str(guess_time)} chance left. ")
     curchar = input("Please enter your guess: ")
     curchar = curchar.upper()
     if curchar in up_str:
@@ -54,4 +58,4 @@ print()
 if win:
     print("You win!")
 else:
-    print("You lose... The word is " + original_str + ". Better luck next time! ")
+    print(f"You lose... The word is {original_str}. Better luck next time! ")
