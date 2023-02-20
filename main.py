@@ -19,7 +19,7 @@ guessed_wrong = []
 is_success = False
 
 original_str = open("word.txt", encoding="utf-8").readlines()[random.randint(0, 7743)].split(" ")[0]
-print(original_str)
+# print(original_str)
 # original_str = input("Please enter the word: ")
 up_str = original_str.upper()
 guess_time = len(original_str) + 1
